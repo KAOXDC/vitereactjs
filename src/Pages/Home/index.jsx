@@ -1,7 +1,8 @@
+import React from 'react'
 import {useState,useEffect } from 'react'
 import Layout from '../../Components/Layout'
 import Card from '../../Components/Card'
-import React from 'react'
+import ProductDetail  from '../../Components/ProductDetail'
 
 function Home() {
 
@@ -9,8 +10,9 @@ function Home() {
   useEffect(() => {
     // https://fakeapi.platzi.com/
     fetch('https://api.escuelajs.co/api/v1/products')
+    // fetch('https://jsonplaceholder.typicode.com/photos')
     .then(response => response.json())
-    .then(data => setItems(data) )
+    .then(data => console.log(setItems(data)) )
 
   }, [])
   
@@ -27,6 +29,7 @@ function Home() {
             }
 
         </div>
+        <ProductDetail/>
       </Layout>
     </>
   )
