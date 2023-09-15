@@ -1,30 +1,33 @@
-import { useRoutes, BrowserRouter } from 'react-router-dom'    
-import { CartContextProvider } from '../../Context'
+import { useRoutes, BrowserRouter } from 'react-router-dom'
+
+import './App.css'
 import Home from '../Home'
 import Contact from '../Contact'
 import NotFound from '../NotFound'
-import './App.css'
 import Navbar from '../../Components/Navbar'
+import { CartContextProvider } from '../../Context'
 
-// Declaración Rutas
+
 const AppRoutes = () => {
     let routes = useRoutes([
-      {path: '/', element: <Home/>},
-      {path: '/contacto', element: <Contact/>},
-      {path: '/*', element: <NotFound/>}
-    ])  
+        {path: '/', element: <Home/>},
+        {path: 'contacto', element: <Contact/>},
+        {path: '/*', element: <NotFound/>}
+    ])
     return routes
 }
 
-const App = () => {
+function App() {
+  
   return (
     <CartContextProvider>
         <BrowserRouter>
             <AppRoutes/>
             <Navbar/>
         </BrowserRouter>
-    </CartContextProvider>
 
-)
+    </CartContextProvider>
+  )
 }
+
 export default App
