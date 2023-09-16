@@ -6,6 +6,7 @@ import Contact from '../Contact'
 import NotFound from '../NotFound'
 import Navbar from '../../Components/Navbar'
 import { CartContextProvider } from '../../Context'
+import CheckoutSideMenu from '../../Components/CheckoutSideMenu'
 
 
 const AppRoutes = () => {
@@ -24,6 +25,7 @@ function App() {
         <BrowserRouter>
             <AppRoutes/>
             <Navbar/>
+            <CheckoutSideMenu/>
         </BrowserRouter>
 
     </CartContextProvider>
