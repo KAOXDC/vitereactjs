@@ -1,5 +1,5 @@
 const OrderCart = props => {
-    const { id, title, imageUrl, price } = props
+    const { id, title, imageUrl, price, handleDelete } = props
 
     return (
         <div className="flex justify-between items-center mb-3 ">
@@ -11,7 +11,7 @@ const OrderCart = props => {
             </div>
             <div flex items-center gap-2>
                 <p className="text/;g font-medium">{ price }</p>
-                <div> x </div>
+                <div onClick={()=> handleDelete(id)}> x </div>
             </div>
         </div>
     )

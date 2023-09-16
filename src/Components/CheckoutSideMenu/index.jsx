@@ -24,10 +24,11 @@ const CheckoutSideMenu = () => {
                 context.cartProducts.map( product => (
                     <OrderCart 
                         key = {product.id}
+                        id = {product.id}
                         title = {product.title}
                         imageUrl = {product.images}
                         price = {product.price}
-                        handleDelete= {handleDelete}
+                        handleDelete = {handleDelete}
                     />
                 ) )
             }
