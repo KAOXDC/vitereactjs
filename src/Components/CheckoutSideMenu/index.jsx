@@ -2,12 +2,13 @@ import { useContext } from 'react'
 import { CartContext } from "../../Context";
 import './styles.css'
 import OrderCart from '../../Components/OrderCart';
+import { totalPrice } from '../../Utils';
 
 const CheckoutSideMenu = () => {
     const context = useContext(CartContext)
 
     const handleDelete = (id) => {
-        const filteredProducts = context.cartProducts.filter(product => product.id  != id )
+        const filteredProducts = context.cartProducts.filter(product => product.id != id )
         context.setCartProducts(filteredProducts)
     }
     
@@ -19,7 +20,6 @@ const CheckoutSideMenu = () => {
                 <div onClick={() => context.closeCheckoutSideMenu() }>x</div>
             </div>
             <div className='px-6 overflow-y-scroll'>
-
             {
                 context.cartProducts.map( product => (
                     <OrderCart 
@@ -33,7 +33,13 @@ const CheckoutSideMenu = () => {
                 ) )
             }
             </div>
+            <div className='px-6 bg-slate-100'>
+                <p className='flex justify-between items-center'>
+                    <span className='font-light'>Total : </span>
+                    <span className='font-medium text-2xl'>${totalPrice(context.cartProducts)}</span>
+                </p>
 
+            </div>
         </aside>
     )
 }

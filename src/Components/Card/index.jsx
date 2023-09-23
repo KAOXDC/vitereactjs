@@ -15,9 +15,9 @@ const addProductsToCart = (event, productData)  => {
     event.stopPropagation()
     context.setCount(context.count + 1)
     context.setCartProducts([...context.cartProducts , productData])
+    console.log(context.cartProducts)
     context.openCheckoutSideMenu()
     context.closeProductDetail()
-    // console.log(context.cartProducts)
 }
 
 const renderIcon = (id) => {
